@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+
+{% block content %}
+
+
+    <h1>Supprimer des amis </h1>
+    <br><br>
+    <br>
+    <h3>Supprimer un ami : &nbsp;&nbsp;&nbsp;&nbsp;</h3>
+    <br><br>
+    <form action="/Action/{{ app.user.id }}/Supp/doSupp" method="GET">
+
+
+        <select id="friends" name="friends">
+            {%  for user in  app.user.friends%}
+            <option value="{{ user.id }}">{{ user.username }}<option>
+                {% endfor %}
+        </select>
+        &nbsp;&nbsp; &nbsp;&nbsp;
+        <button class="btn btn-danger" type="submit">Supprimer un ami <span class="glyphicon glyphicon-remove"></span></button>
+    </form>
+
+    <br><br>
+
+    <ul>
+        <li>
+            <a href="{{ path('Action_index') }}">Retour</a>
+        </li>
+    </ul>
+{% endblock %}

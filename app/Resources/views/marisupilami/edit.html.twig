@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1 style="text-align: center">Modifier vos informations</h1>
+    <br><br><br>
+
+    {{ form_start(edit_form) }}
+    <div>
+        {{ form_label(edit_form.race) }}
+        {{ form_errors(edit_form.race) }}
+        &nbsp;   &nbsp;   &nbsp;  &nbsp;
+        {{ form_widget(edit_form.race) }}
+
+    </div>
+<br>    <div>
+        {{ form_label(edit_form.famille) }}
+        {{ form_errors(edit_form.famille) }}
+    &nbsp;   &nbsp;   &nbsp;
+    {{ form_widget(edit_form.famille) }}
+
+    </div>
+    <br>
+    <div>
+        {{ form_label(edit_form.nourriture) }}
+        {{ form_errors(edit_form.nourriture) }}
+        {{ form_widget(edit_form.nourriture) }}
+
+    </div>
+    <br><div>
+        {{ form_label(edit_form.age) }}
+        {{ form_errors(edit_form.age) }}
+    &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;   &nbsp;
+    {{ form_widget(edit_form.age) }}
+
+    </div>
+
+    <br> <br>
+        <input  class="btn btn-success" type="submit" value="Modifier" />
+    {{ form_end(edit_form) }}
+
+    <ul>
+        <br>
+
+            <a href="{{ path('Action_index') }}">Retour </a>
+
+
+    </ul>
+{% endblock %}

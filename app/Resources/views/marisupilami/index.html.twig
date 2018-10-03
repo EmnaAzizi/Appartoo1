@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1 style="text-align: center">Bienvenue {{app.user.username }}</h1>
+{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+    <a href="{{ path('fos_user_security_logout') }}">
+    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+    </a>
+    <br><br><br>
+    {% endif %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th># </th>
+                <th>Nom Utilisateur</th>
+                <th>Race</th>
+                <th>Famille</th>
+                <th>Nourriture</th>
+                <th>Age</th>
+                <th>Voir</th>
+                <th>Modifier</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+
+                <td>{{app.user.id }}</td>
+                <td>{{app.user.username }}</td>
+                <td>{{app.user.race }}</td>
+                <td>{{ app.user.famille }}</td>
+                <td>{{ app.user.nourriture }}</td>
+                <td>{{ app.user.age }}</td>
+                <td>
+
+
+                            <a  class="btn btn-success"  href="{{ path('Action_show', { 'id': app.user.id }) }}">Voir</a>
+
+                </td><td>
+                            <a  class="btn btn-warning"  href="{{ path('Action_edit', { 'id': app.user.id }) }}">Modifier   <span class="	glyphicon glyphicon-pencil"></span></a>
+
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <ul>
+
+    </ul>
+{% endblock %}
